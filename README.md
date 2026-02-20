@@ -7,7 +7,7 @@
 ## Folder Structure
 
 ```
-ab_testing_project/          ← single base folder (everything here)
+A-B-Testing-and-Hypothesis-Testing-on-Product-Metrics/          ← single base folder (everything here)
 ├── main.py                  # FastAPI app — run from this folder
 ├── requirements.txt
 ├── README.md
@@ -39,7 +39,7 @@ ab_testing_project/          ← single base folder (everything here)
 ## How to Run
 
 ```bash
-cd ab_testing_project
+cd A-B-Testing-and-Hypothesis-Testing-on-Product-Metrics
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
