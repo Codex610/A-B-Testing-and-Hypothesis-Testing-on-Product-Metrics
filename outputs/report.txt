@@ -1,0 +1,61 @@
+======================================================================
+       A/B TESTING ANALYSIS REPORT
+       Generated: 2026-02-20 13:46:30
+======================================================================
+
+── DATASET SUMMARY ──────────────────────────────────────────────────
+  Total Users     : 20000
+  Control Users   : 10000
+  Variant Users   : 10000
+
+── METRICS SUMMARY ──────────────────────────────────────────────────
+  Metric                         Control      Variant   Difference
+  --------------------------------------------------------------
+  Conversion Rate                 11.45%       14.85%        3.40%
+  Avg Time Spent (min)            7.5541       8.8652       1.3111
+  Avg Clicks                      3.1968       3.9406       0.7438
+
+── HYPOTHESIS TEST RESULTS ──────────────────────────────────────────
+  Metric   : conversion_rate
+  Test     : Two-Proportion Z-Test
+  Statistic: 7.114
+  P-value  : 0.0
+  Result   : SIGNIFICANT (alpha=0.05)
+  Notes    : Conversion rate: Control=0.1145 (11.45%), Variant=0.1485 (14.85%). Uplift=29.69%. Statistically significant difference detected.
+
+  Metric   : time_spent
+  Test     : Independent T-Test (Welch)
+  Statistic: -18.3169
+  P-value  : 0.0
+  Result   : SIGNIFICANT (alpha=0.05)
+  Notes    : time_spent: Control mean=7.5541, Variant mean=8.8652. Difference=1.3111. Statistically significant difference detected.
+
+  Metric   : clicks
+  Test     : Independent T-Test (Welch)
+  Statistic: -27.9284
+  P-value  : 0.0
+  Result   : SIGNIFICANT (alpha=0.05)
+  Notes    : clicks: Control mean=3.1968, Variant mean=3.9406. Difference=0.7438. Statistically significant difference detected.
+
+── CONFIDENCE INTERVALS (95%) ────────────────────────────────────────
+  conversion_rate: [0.024645, 0.043355]  Point estimate: 0.034
+  time_spent: [1.1708, 1.4513]  Point estimate: 1.3111
+  clicks: [0.6916, 0.796]  Point estimate: 0.7438
+
+── POWER ANALYSIS ───────────────────────────────────────────────────
+  Conversion Rate Uplift: 29.69%
+  Actual sample per group: 10000
+  Required (conversion): 773
+  Required (time_spent): 234
+  Required (clicks):     101
+
+── BUSINESS INSIGHTS ────────────────────────────────────────────────
+  • The variant group achieved a statistically significant lift of 29.69% in conversion rate (11.45% → 14.85%). This directly impacts revenue.
+  • Users in the variant spent on average 1.31 more minutes per session, indicating improved engagement.
+  • Variant users averaged 0.74 more clicks, suggesting better interaction with the product.
+
+── FINAL RECOMMENDATION ─────────────────────────────────────────────
+  >>> ROLLOUT <<<
+  Multiple metrics show statistically significant improvement in the variant. A positive conversion uplift with increased engagement metrics strongly supports deploying the variant to all users.
+
+======================================================================

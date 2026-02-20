@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-02-20 13:46:30.303883",
+  "dataset_info": {
+    "total_rows": 20000,
+    "total_columns": 7,
+    "date_range": "last 30 days"
+  },
+  "metrics_summary": {
+    "control": {
+      "n_users": 10000,
+      "conversion_rate": 0.1145,
+      "avg_time_spent": 7.5541,
+      "avg_clicks": 3.1968,
+      "avg_session_count": 3.0811,
+      "total_conversions": 1145
+    },
+    "variant": {
+      "n_users": 10000,
+      "conversion_rate": 0.1485,
+      "avg_time_spent": 8.8652,
+      "avg_clicks": 3.9406,
+      "avg_session_count": 3.3926,
+      "total_conversions": 1485
+    },
+    "differences": {
+      "conversion_rate_diff": 0.034,
+      "time_spent_diff": 1.3111,
+      "clicks_diff": 0.7438
+    }
+  },
+  "hypothesis_tests": {
+    "conversion_rate": {
+      "metric": "conversion_rate",
+      "test_type": "Two-Proportion Z-Test",
+      "statistic": 7.114,
+      "p_value": 0.0,
+      "significant": "True",
+      "alpha": 0.05,
+      "interpretation": "Conversion rate: Control=0.1145 (11.45%), Variant=0.1485 (14.85%). Uplift=29.69%. Statistically significant difference detected."
+    },
+    "time_spent": {
+      "metric": "time_spent",
+      "test_type": "Independent T-Test (Welch)",
+      "statistic": -18.3169,
+      "p_value": 0.0,
+      "significant": "True",
+      "alpha": 0.05,
+      "interpretation": "time_spent: Control mean=7.5541, Variant mean=8.8652. Difference=1.3111. Statistically significant difference detected."
+    },
+    "clicks": {
+      "metric": "clicks",
+      "test_type": "Independent T-Test (Welch)",
+      "statistic": -27.9284,
+      "p_value": 0.0,
+      "significant": "True",
+      "alpha": 0.05,
+      "interpretation": "clicks: Control mean=3.1968, Variant mean=3.9406. Difference=0.7438. Statistically significant difference detected."
+    }
+  },
+  "confidence_intervals": {
+    "conversion_rate": {
+      "metric": "conversion_rate_difference",
+      "lower": 0.024645,
+      "upper": 0.043355,
+      "point_estimate": 0.034,
+      "confidence_level": 0.95
+    },
+    "time_spent": {
+      "metric": "time_spent_difference",
+      "lower": 1.1708,
+      "upper": 1.4513,
+      "point_estimate": 1.3111,
+      "confidence_level": 0.95
+    },
+    "clicks": {
+      "metric": "clicks_difference",
+      "lower": 0.6916,
+      "upper": 0.796,
+      "point_estimate": 0.7438,
+      "confidence_level": 0.95
+    }
+  },
+  "power_analysis": {
+    "conversion_rate": {
+      "test": "Two-Proportion Z-Test",
+      "effect_size_h": 0.1008,
+      "required_sample_size_per_group": 773,
+      "alpha": 0.05,
+      "power": 0.8
+    },
+    "time_spent": {
+      "test": "Independent T-Test (time_spent)",
+      "cohens_d": 0.259,
+      "required_sample_size_per_group": 234,
+      "alpha": 0.05,
+      "power": 0.8
+    },
+    "clicks": {
+      "test": "Independent T-Test (clicks)",
+      "cohens_d": 0.395,
+      "required_sample_size_per_group": 101,
+      "alpha": 0.05,
+      "power": 0.8
+    },
+    "conversion_uplift_pct": 29.69,
+    "actual_sample_size_per_group": 10000
+  },
+  "business_insights": {
+    "insights": [
+      "The variant group achieved a statistically significant lift of 29.69% in conversion rate (11.45% \u2192 14.85%). This directly impacts revenue.",
+      "Users in the variant spent on average 1.31 more minutes per session, indicating improved engagement.",
+      "Variant users averaged 0.74 more clicks, suggesting better interaction with the product."
+    ],
+    "recommendation": "ROLLOUT",
+    "rationale": "Multiple metrics show statistically significant improvement in the variant. A positive conversion uplift with increased engagement metrics strongly supports deploying the variant to all users.",
+    "significant_metrics": "3",
+    "total_metrics_tested": 3
+  }
+}
