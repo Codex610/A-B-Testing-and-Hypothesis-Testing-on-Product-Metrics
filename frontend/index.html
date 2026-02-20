@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A/B Testing Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">⚗️</span>
+        <div>
+          <h1>A/B Testing Dashboard</h1>
+          <p>Product Metrics Analysis &amp; Hypothesis Testing</p>
+        </div>
+      </div>
+      <div class="header-badge">Statistics Project</div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <!-- ACTION BUTTONS -->
+    <section class="actions-panel">
+      <button class="btn btn-primary" id="btnGenerate">
+        <span class="btn-icon">🗄️</span> Generate Dataset
+      </button>
+      <button class="btn btn-success" id="btnAnalyze">
+        <span class="btn-icon">🔬</span> Run Analysis
+      </button>
+      <button class="btn btn-secondary" id="btnViewReport">
+        <span class="btn-icon">📄</span> View Report JSON
+      </button>
+      <button class="btn btn-download" id="btnDownloadPDF">
+        <span class="btn-icon">⬇️</span> Download PDF Report
+      </button>
+    </section>
+
+    <!-- STATUS BAR -->
+    <div id="statusBar" class="status-bar hidden">
+      <div class="spinner"></div>
+      <span id="statusText">Processing…</span>
+    </div>
+
+    <!-- ALERT -->
+    <div id="alertBox" class="alert hidden"></div>
+
+    <!-- DATASET INFO -->
+    <section id="datasetSection" class="card hidden">
+      <h2 class="card-title">📊 Dataset Overview</h2>
+      <div class="info-grid" id="datasetInfo"></div>
+    </section>
+
+    <!-- METRICS CARDS -->
+    <section id="metricsSection" class="hidden">
+      <h2 class="section-title">📈 Key Metrics</h2>
+      <div class="metrics-grid" id="metricsGrid"></div>
+    </section>
+
+    <!-- HYPOTHESIS TESTS -->
+    <section id="testsSection" class="card hidden">
+      <h2 class="card-title">🧪 Hypothesis Testing Results</h2>
+      <div id="testsGrid" class="tests-grid"></div>
+    </section>
+
+    <!-- CONFIDENCE INTERVALS -->
+    <section id="ciSection" class="card hidden">
+      <h2 class="card-title">📐 Confidence Intervals (95%)</h2>
+      <div id="ciGrid" class="ci-grid"></div>
+    </section>
+
+    <!-- POWER ANALYSIS -->
+    <section id="powerSection" class="card hidden">
+      <h2 class="card-title">⚡ Power Analysis &amp; Effect Sizes</h2>
+      <div id="powerGrid" class="power-grid"></div>
+    </section>
+
+    <!-- RECOMMENDATION -->
+    <section id="recommendationSection" class="hidden">
+      <div id="recommendationCard" class="recommendation-card"></div>
+    </section>
+
+    <!-- PLOTS -->
+    <section id="plotsSection" class="hidden">
+      <h2 class="section-title">📉 Visualizations</h2>
+      <div class="plots-grid" id="plotsGrid"></div>
+    </section>
+
+    <!-- JSON MODAL -->
+    <div id="jsonModal" class="modal hidden">
+      <div class="modal-backdrop" id="modalBackdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Report JSON</h3>
+          <button class="modal-close" id="modalClose">✕</button>
+        </div>
+        <pre class="json-pre" id="jsonContent"></pre>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>A/B Testing Statistics Project &nbsp;|&nbsp; Powered by FastAPI + Python</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
